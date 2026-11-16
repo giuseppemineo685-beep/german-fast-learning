@@ -41,6 +41,21 @@ main{max-width:1190px;padding-top:26px}
 #additionalDays{border-top:5px solid #e43b50}
 @media(max-width:700px){main{padding:15px 12px 60px}.hero{min-height:0;border-radius:20px}.hero:after{font-size:62px;right:4%;bottom:6%;opacity:.3}.hero h1{letter-spacing:-1.2px}.top>.tag{font-size:9px}.day{min-height:100px}.card{border-radius:19px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+</style><style>
+body.home-view #day1,body.home-view #additionalDays{display:none!important}
+body.lesson-view .hero,body.lesson-view .top,body.lesson-view #roadmap,body.lesson-view #extraButtons{display:none!important}
+body.lesson-view main>section.card:not(#day1):not(#additionalDays){display:none!important}
+body.lesson-view #day1,body.lesson-view #additionalDays{margin-top:14px}
+body.lesson-view #additionalDays:has(#extraLesson:empty){display:none!important}
+body.lesson-view #day1{display:none}
+body.lesson-view:has(.lesson-nav span:nth-child(2)) #additionalDays{display:block}
+body.lesson-view[data-day="1"] #day1{display:block}
+body.lesson-view[data-day="1"] #additionalDays{display:none!important}
+body.lesson-view #additionalDays>h2,body.lesson-view #additionalDays>p,body.lesson-view #additionalDays>.tag{display:none}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 0 18px;font-weight:700;color:#3d4e6b}
+.lesson-nav .btn{text-decoration:none}.lesson-status{color:#16804b}
+.completion-mark{display:inline-flex;margin-top:10px;background:#e2f7ea;color:#116e3c;border:1px solid #b8e8c9;padding:6px 10px;border-radius:30px;font-size:12px;font-weight:800}
+.day.completed{border-color:#70c898;background:linear-gradient(140deg,#f0fff5,#fff)}
 </style></head><body><main>
 <div class="top"><div class="brand">🇨🇭 German <span class="red">Fast Learning</span></div><span class="tag">PERSONAL LEARNING JOURNEY</span></div>
 <div class="hero"><div class="tag">FROM A1 TO B1 · STEP BY STEP</div><h1>Giuseppe’s Journey to B1</h1><h2 class="red">Chapter 1 · A1 Intensive — 30 days</h2><p>Study German directly on this website. A personal German-learning journey, starting with an intensive 30-day A1 course. Open any day to study grammar, vocabulary and interactive exercises directly on this page. A2 and B1 are the next chapters. All explanations are in English.</p><p class="muted small">Days 1–30 now include grammar, vocabulary, examples and interactive practice. Some later lessons use repeated sentence patterns and need further enrichment with unique scenarios and audio.</p><div class="progress"><div id="courseProgress" class="fill"></div></div><p id="progressLabel" class="small muted"></p></div>
@@ -50,4 +65,4 @@ main{max-width:1190px;padding-top:26px}
 <div id="vocab" class="panel"><h2>2. Vocabulary · 10 min</h2><p>Read each word, hide the English translation, then recall it aloud. Write five original sentences.</p><button id="toggleTranslations" class="btn">Hide translations</button><table id="vocabTable"><tr><th>German</th><th>English</th></tr></table><button class="btn primary" data-next="exercise">Start 50 exercises →</button></div>
 <div id="exercise" class="panel"><h2>3. Interactive exercises · 25 min</h2><p>Complete the core exercises first, then continue with additional practice. Short answers are checked automatically. You can retry any incorrect answer.</p><div class="callout"><strong id="score">0 / 50 correct</strong><p id="answered" class="small muted">0 answered</p><div class="progress"><div id="exerciseProgress" class="fill"></div></div></div><div id="questions"></div><button class="btn" id="checkAll">Check all answers</button> <button class="btn primary" data-next="practice">Speaking and final review →</button></div>
 <div id="practice" class="panel"><h2>4. Speaking, reading and review · 5+ min</h2><p>Read the mini-dialogue from the Learn tab aloud three times. Then introduce yourself, say where you live and work, and ask a colleague their name using formal <em>Sie</em>.</p><h3>Reading comprehension</h3><div class="callout"><strong>Anna:</strong> Guten Tag! Ich heiße Anna. Ich bin in Zürich. Mein Kollege heißt Marco. Er ist heute im Büro. Wir haben um zehn Uhr einen Termin.</div><p>Answer aloud: Where is Anna? Who is Marco? Is Marco in the office? At what time is the appointment?</p><h3>Writing task</h3><p>Write 60–80 words introducing yourself. Use <em>sein</em> and <em>haben</em> at least twice each, and write one formal question.</p><textarea id="writing" placeholder="Guten Tag! Ich heiße ..."></textarea><p class="small muted">Your writing is saved locally in this browser. It is not automatically graded.</p><h3>Final checklist</h3><div id="checklist"></div><p><button id="finish" class="btn primary">Mark Day 1 complete</button></p><p id="finishMsg" class="small muted"></p></div>
-</section></main><script src="a1-course.js"></script><script src="a1-days-2-30.js"></script></body></html>
+</section></main><script src="a1-course.js"></script><script src="a1-days-2-30.js"></script><script src="lesson-navigation.js"></script></body></html>
