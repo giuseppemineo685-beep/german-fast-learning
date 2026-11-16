@@ -56,7 +56,17 @@ body.lesson-view #additionalDays>h2,body.lesson-view #additionalDays>p,body.less
 .lesson-nav .btn{text-decoration:none}.lesson-status{color:#16804b}
 .completion-mark{display:inline-flex;margin-top:10px;background:#e2f7ea;color:#116e3c;border:1px solid #b8e8c9;padding:6px 10px;border-radius:30px;font-size:12px;font-weight:800}
 .day.completed{border-color:#70c898;background:linear-gradient(140deg,#f0fff5,#fff)}
-</style></head><body data-day="1"><main>
+</style><style>
+body.lesson-view main>.top,body.lesson-view main>.hero,body.lesson-view main>section.card:first-of-type{display:none!important}
+body.lesson-view #day1{display:none!important}
+body.lesson-view[data-day="1"] #day1{display:block!important}
+body.lesson-view #additionalDays{display:block!important}
+body.lesson-view[data-day="1"] #additionalDays{display:none!important}
+body.lesson-view #extraButtons{display:none!important}
+body.lesson-view #additionalDays:has(#extraLesson:empty){display:block!important}
+body.lesson-view #extraLesson{display:block!important;min-height:150px}
+body.lesson-view main{max-width:1050px;margin:0 auto;padding:25px 16px 80px}
+</style></head><body class="lesson-view"><script>document.body.dataset.day=String(Math.max(1,Math.min(30,Number(new URLSearchParams(location.search).get("day"))||1)));</script><main>
 <div class="top"><div class="brand">🇨🇭 German <span class="red">Fast Learning</span></div><span class="tag">PERSONAL LEARNING JOURNEY</span></div>
 <div class="hero"><div class="tag">FROM A1 TO B1 · STEP BY STEP</div><h1>Giuseppe’s Journey to B1</h1><h2 class="red">Chapter 1 · A1 Intensive — 30 days</h2><p>Study German directly on this website. A personal German-learning journey, starting with an intensive 30-day A1 course. Open any day to study grammar, vocabulary and interactive exercises directly on this page. A2 and B1 are the next chapters. All explanations are in English.</p><p class="muted small">Days 1–30 now include grammar, vocabulary, examples and interactive practice. Some later lessons use repeated sentence patterns and need further enrichment with unique scenarios and audio.</p><div class="progress"><div id="courseProgress" class="fill"></div></div><p id="progressLabel" class="small muted"></p></div>
 <section class="card"><h2>Your learning roadmap</h2><div class="grid" style="margin:14px 0 22px"><div class="callout"><strong>01 · A1 Intensive</strong><p class="small">30 days · Lessons available</p></div><div class="callout"><strong>02 · A2 Development</strong><p class="small">Next chapter · Coming later</p></div><div class="callout"><strong>03 · B1 Confidence</strong><p class="small">Your goal · Coming later</p></div></div><h2>Chapter 1 · Your 30 A1 lessons</h2><div id="roadmap" class="grid"></div></section>
